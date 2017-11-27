@@ -54,6 +54,6 @@ public class MFuelItem {
 
     @Override
     public String toString() {
-        return "Kms" + getKilometers() + " / " + getAmountCash();
+        return "Kms" + getKilometers() + " / Cash: " + getAmountCash() + " / Liters: " + getAmountLt();
     }
 }
