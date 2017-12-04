@@ -17,7 +17,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context="info.codingalecr.ecofuel.ui.FuelItemFormActivity"
+            tools:context="info.codingalecr.ecofuel.ui.activities.FuelItemFormActivity"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="81dp">
 
@@ -32,10 +32,10 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{refuel.amountLt}"
+                    android:text="@{String.valueOf(refuel.amountLt)}"
                     android:hint="Litros"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -48,10 +48,10 @@
                 app:layout_constraintRight_toRightOf="@+id/textInputLayout5"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{refuel.amountCash}"
+                    android:text="@{String.valueOf(refuel.amountCash)}"
                     android:hint="Cash"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -65,10 +65,10 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
                 app:layout_constraintHorizontal_bias="0.0">
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{refuel.kilometers}"
+                    android:text="@{String.valueOf(refuel.kilometers)}"
                     android:hint="Kms"/>
             </android.support.design.widget.TextInputLayout>
 
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/add_refuel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -95,7 +95,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="0dp"
                 android:text="Agregar Refuel"
-                android:onClick=""
+                android:onClick="addRefuel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="@+id/datePicker"
                 app:layout_constraintRight_toRightOf="@+id/datePicker"

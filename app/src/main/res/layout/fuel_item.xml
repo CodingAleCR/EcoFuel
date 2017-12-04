@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="info.codingalecr.ecofuel.models.MFuelItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/fab_margin"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/fuel_icon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:alpha="0.7"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_gas_station"
+            android:tint="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/refuel_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{obj.fuelingDate.toString()}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                tools:text="27/11/2017" />
+
+            <TextView
+                android:id="@+id/refuel_kms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(obj.kilometers)}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                tools:text="100.000kms" />
+
+            <TextView
+                android:id="@+id/refuel_cash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(obj.amountCash)}"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                tools:text="20.000 colones" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

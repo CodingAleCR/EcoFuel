@@ -13,6 +13,10 @@ public class MFuelItem {
     private float mAmountCash;
     private float mKilometers;
 
+    public MFuelItem() {
+        mFuelingDate = new Date();
+    }
+
     public MFuelItem(Date fuelingDate, float amountLt, float amountCash, float kilometers) {
         mFuelingDate = fuelingDate;
         mAmountLt = amountLt;

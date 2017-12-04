@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.ui;
+package info.codingalecr.ecofuel.ui.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Date;
 
@@ -16,6 +19,8 @@ import info.codingalecr.ecofuel.models.MFuelItem;
 public class FuelItemFormActivity extends AppCompatActivity {
 
     private ActivityFuelItemFormBinding mBinding;
+
+    private DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +34,14 @@ public class FuelItemFormActivity extends AppCompatActivity {
                 mBinding.getRefuel().setFuelingDate(new Date(year, monthOfYear, dayOfMonth));
             }
         });
+        mBinding.setRefuel(new MFuelItem());
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
     }
 
-    public void getRefuel(View view) {
+    public void addRefuel(View view) {
         MFuelItem item = mBinding.getRefuel();
-        Log.d("obj", item.toString());
+        DatabaseReference newRefuel = mDatabase.push();
+        newRefuel.setValue(item);
     }
 }
