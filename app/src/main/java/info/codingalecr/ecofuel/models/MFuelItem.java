@@ -1,6 +1,6 @@
 package info.codingalecr.ecofuel.models;
 
-import java.util.Date;
+import info.codingalecr.ecofuel.DateUtils;
 
 /**
  * Created by Alejandro on 11/27/2017.
@@ -8,28 +8,28 @@ import java.util.Date;
 
 public class MFuelItem {
 
-    private Date mFuelingDate;
+    private long mFuelingTimeStamp;
     private float mAmountLt;
     private float mAmountCash;
     private float mKilometers;
 
     public MFuelItem() {
-        mFuelingDate = new Date();
+        mFuelingTimeStamp = DateUtils.getTime();
     }
 
-    public MFuelItem(Date fuelingDate, float amountLt, float amountCash, float kilometers) {
-        mFuelingDate = fuelingDate;
+    public MFuelItem(long fuelingDate, float amountLt, float amountCash, float kilometers) {
+        mFuelingTimeStamp = fuelingDate;
         mAmountLt = amountLt;
         mAmountCash = amountCash;
         mKilometers = kilometers;
     }
 
-    public Date getFuelingDate() {
-        return mFuelingDate;
+    public long getFuelingDate() {
+        return mFuelingTimeStamp;
     }
 
-    public void setFuelingDate(Date fuelingDate) {
-        mFuelingDate = fuelingDate;
+    public void setFuelingDate(long fuelingDate) {
+        mFuelingTimeStamp = fuelingDate;
     }
 
     public float getAmountLt() {

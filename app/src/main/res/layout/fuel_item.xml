@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
-            name="obj"
+            name="item"
             type="info.codingalecr.ecofuel.models.MFuelItem" />
     </data>
 
@@ -36,19 +36,19 @@
                 android:id="@+id/refuel_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{obj.fuelingDate.toString()}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                tools:text="27/11/2017" />
+                tools:text="27/11/2017"
+                app:showDate="@{obj.fuelingDate}" />
 
             <TextView
                 android:id="@+id/refuel_kms"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(obj.kilometers)}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                tools:text="100.000kms" />
+                tools:text="100.000kms"
+                app:showKms="@{obj.kilometers}"/>
 
             <TextView
                 android:id="@+id/refuel_cash"
@@ -57,7 +57,8 @@
                 android:text="@{String.valueOf(obj.amountCash)}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                tools:text="20.000 colones" />
+                tools:text="20.000 colones"
+                app:showCash="@{obj.amountCash}"/>
 
         </LinearLayout>
 

@@ -1,107 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="refuel"
-            type="info.codingalecr.ecofuel.models.MFuelItem" />
-    </data>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context="info.codingalecr.ecofuel.ui.activities.FuelItemFormActivity"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="81dp">
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context="info.codingalecr.ecofuel.ui.activities.FuelItemFormActivity">
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInputLayout5"
-                android:layout_width="0dp"
+                android:id="@+id/textInput_liters"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginTop="8dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(refuel.amountLt)}"
+                    android:inputType="numberDecimal"
                     android:hint="Litros"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInputLayout4"
-                android:layout_width="0dp"
+                android:id="@+id/textInput_cash"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintLeft_toLeftOf="@+id/textInputLayout5"
-                app:layout_constraintRight_toRightOf="@+id/textInputLayout5"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(refuel.amountCash)}"
+                    android:inputType="numberDecimal"
                     android:hint="Cash"/>
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/textInputLayout3"
-                android:layout_width="368dp"
+                android:id="@+id/textInput_kilometers"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintLeft_toLeftOf="@+id/textInputLayout4"
-                app:layout_constraintRight_toRightOf="@+id/textInputLayout4"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
-                app:layout_constraintHorizontal_bias="0.0">
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
 
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{String.valueOf(refuel.kilometers)}"
+                    android:inputType="numberDecimal"
                     android:hint="Kms"/>
             </android.support.design.widget.TextInputLayout>
 
             <DatePicker
-                android:id="@+id/datePicker"
-                android:layout_width="0dp"
+                android:id="@+id/datePicker_refuel_date"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:layout_marginLeft="0dp"
-                android:layout_marginRight="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:headerBackground="?attr/colorPrimary"
-                app:layout_constraintLeft_toLeftOf="@+id/textInputLayout3"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                app:layout_constraintHorizontal_bias="0.7"/>
+                android:headerBackground="?attr/colorPrimary"/>
 
             <Button
                 android:id="@+id/add_refuel"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
-                android:text="Agregar Refuel"
+                android:layout_marginTop="8dp"
                 android:onClick="addRefuel"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@+id/datePicker"
-                app:layout_constraintRight_toRightOf="@+id/datePicker"
-                app:layout_constraintTop_toBottomOf="@+id/datePicker"/>
+                android:text="@string/add_refuel"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
     </ScrollView>
 </layout>

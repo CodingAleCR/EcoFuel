@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import info.codingalecr.ecofuel.R;
@@ -28,20 +30,39 @@ public class FuelItemFormActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_fuel_item_form);
 
         Date now = new Date();
-        mBinding.datePicker.init(now.getYear(), now.getMonth(), now.getDay(), new DatePicker.OnDateChangedListener() {
-            @Override
-            public void onDateChanged(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
-                mBinding.getRefuel().setFuelingDate(new Date(year, monthOfYear, dayOfMonth));
-            }
-        });
-        mBinding.setRefuel(new MFuelItem());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(now);
+
+        mBinding.datePickerRefuelDate.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
 
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
     }
 
     public void addRefuel(View view) {
-        MFuelItem item = mBinding.getRefuel();
+        MFuelItem item = new MFuelItem();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, mBinding.datePickerRefuelDate.getYear());
+        calendar.set(Calendar.MONTH, mBinding.datePickerRefuelDate.getMonth());
+        calendar.set(Calendar.DAY_OF_MONTH, mBinding.datePickerRefuelDate.getDayOfMonth());
+
+        item.setAmountCash(Float.parseFloat(mBinding.textInputCash.getEditText().getText().toString()));
+        item.setAmountLt(Float.parseFloat(mBinding.textInputLiters.getEditText().getText().toString()));
+        item.setKilometers(Float.parseFloat(mBinding.textInputKilometers.getEditText().getText().toString()));
         DatabaseReference newRefuel = mDatabase.push();
-        newRefuel.setValue(item);
+        newRefuel.setValue(item, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if (databaseError == null) {
+                    clearForm();
+                }
+            }
+        });
+    }
+
+    public void clearForm() {
+        mBinding.textInputCash.getEditText().setText(null);
+        mBinding.textInputLiters.getEditText().setText(null);
+        mBinding.textInputKilometers.getEditText().setText(null);
     }
 }

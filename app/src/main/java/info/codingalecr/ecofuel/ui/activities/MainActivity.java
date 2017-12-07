@@ -3,10 +3,13 @@ package info.codingalecr.ecofuel.ui.activities;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,13 +20,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import info.codingalecr.ecofuel.ItemClickListener;
 import info.codingalecr.ecofuel.R;
 import info.codingalecr.ecofuel.databinding.ActivityMainBinding;
 import info.codingalecr.ecofuel.helpers.MainClickHelper;
 import info.codingalecr.ecofuel.models.MFuelItem;
 import info.codingalecr.ecofuel.ui.adapters.FuelItemAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemClickListener {
 
     private ActivityMainBinding mBinding;
 
@@ -37,13 +41,15 @@ public class MainActivity extends AppCompatActivity {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        init();
+    }
 
-        mBinding.fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
-
+    public void init() {
         mFuelAdapter = new FuelItemAdapter();
-
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
 
+        mFuelAdapter.setItemClickListener(this);
+        mBinding.fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
         showRefuelList();
     }
 
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        mDatabase.addChildEventListener(mFuelAdapter);
+        mDatabase.addValueEventListener(mFuelAdapter);
     }
 
     @Override
@@ -82,22 +88,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showRefuelList() {
-        mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<MFuelItem> items = new ArrayList<MFuelItem>();
-                for (DataSnapshot item :
-                        dataSnapshot.getChildren()) {
-                    MFuelItem fuelItem = item.getValue(MFuelItem.class);
-                    items.add(fuelItem);
-                }
-                mFuelAdapter.setFuelItems(items);
-            }
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        mBinding.fuelList.setLayoutManager(manager);
+        mBinding.fuelList.setAdapter(mFuelAdapter);
+        mFuelAdapter.notifyDataSetChanged();
+    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.i("", "");
-            }
-        });
+    @Override
+    public void onItemClicked(int viewId, int position, boolean isLongClick) {
+        MFuelItem item = mFuelAdapter.getItem(position);
+        Toast.makeText(this, item.toString(), Toast.LENGTH_LONG).show();
     }
 }

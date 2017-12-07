@@ -23,7 +23,7 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -32,18 +32,10 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/fuel_list"
-                android:layout_width="0dp"
-                android:layout_height="495dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-        </android.support.constraint.ConstraintLayout>
+        </FrameLayout>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_add"
@@ -51,7 +43,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
+            android:tint="@color/colorWhite"
+            app:srcCompat="@android:drawable/ic_input_add"/>
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

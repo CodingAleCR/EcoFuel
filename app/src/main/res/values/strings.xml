@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">EcoFuel</string>
     <string name="action_settings">Settings</string>
+    <string name="add_refuel">Agregar Refuel</string>
 </resources>
