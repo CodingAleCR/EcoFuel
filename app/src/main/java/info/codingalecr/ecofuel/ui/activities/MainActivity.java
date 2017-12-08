@@ -8,7 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,13 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import info.codingalecr.ecofuel.ItemClickListener;
+import info.codingalecr.ecofuel.ProgressConductor;
 import info.codingalecr.ecofuel.R;
 import info.codingalecr.ecofuel.databinding.ActivityMainBinding;
 import info.codingalecr.ecofuel.helpers.MainClickHelper;
 import info.codingalecr.ecofuel.models.MFuelItem;
 import info.codingalecr.ecofuel.ui.adapters.FuelItemAdapter;
 
-public class MainActivity extends AppCompatActivity implements ItemClickListener {
+public class MainActivity extends AppCompatActivity implements ItemClickListener, ProgressConductor {
 
     private ActivityMainBinding mBinding;
 
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
 
         mFuelAdapter.setItemClickListener(this);
+        mFuelAdapter.setProgressConductor(this);
         mBinding.fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
         showRefuelList();
     }
@@ -78,13 +82,13 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     @Override
     protected void onStart() {
         super.onStart();
-        mDatabase.addValueEventListener(mFuelAdapter);
+        mDatabase.orderByChild("fuelingDate").addValueEventListener(mFuelAdapter);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mDatabase.removeEventListener(mFuelAdapter);
+        mDatabase.orderByChild("fuelingDate").removeEventListener(mFuelAdapter);
     }
 
     public void showRefuelList() {
@@ -98,5 +102,15 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     public void onItemClicked(int viewId, int position, boolean isLongClick) {
         MFuelItem item = mFuelAdapter.getItem(position);
         Toast.makeText(this, item.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showProgress() {
+        mBinding.progress.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgress() {
+        mBinding.progress.setVisibility(View.GONE);
     }
 }

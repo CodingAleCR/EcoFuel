@@ -28,14 +28,9 @@ public class FuelItemFormActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_fuel_item_form);
-
-        Date now = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(now);
-
-        mBinding.datePickerRefuelDate.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
-
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
+
+        clearForm();
     }
 
     public void addRefuel(View view) {
@@ -64,5 +59,14 @@ public class FuelItemFormActivity extends AppCompatActivity {
         mBinding.textInputCash.getEditText().setText(null);
         mBinding.textInputLiters.getEditText().setText(null);
         mBinding.textInputKilometers.getEditText().setText(null);
+        clearDatePicker();
+    }
+
+    public void clearDatePicker() {
+        Date now = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(now);
+
+        mBinding.datePickerRefuelDate.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
     }
 }

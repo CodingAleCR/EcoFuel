@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
-            type="info.codingalecr.ecofuel.models.MFuelItem" />
+            type="info.codingalecr.ecofuel.models.MFuelItem"/>
     </data>
 
     <LinearLayout
@@ -16,15 +17,35 @@
         android:padding="@dimen/fab_margin"
         android:weightSum="1">
 
-        <ImageView
-            android:id="@+id/fuel_icon"
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="0.25"
-            android:alpha="0.7"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_gas_station"
-            android:tint="@color/colorPrimary" />
+            android:background="@color/colorGray"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                tools:text="42lts"
+                app:showLts="@{item.amountLt}"/>
+
+            <ImageView
+                android:id="@+id/fuel_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.7"
+                android:background="@color/colorWhite"
+                android:contentDescription="@string/app_name"
+                android:padding="1dp"
+                android:src="@drawable/ic_gas_station"
+                android:tint="@color/colorBlack"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -38,8 +59,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                tools:text="27/11/2017"
-                app:showDate="@{obj.fuelingDate}" />
+                app:showDate="@{item.fuelingDate}"
+                tools:text="27/11/2017"/>
 
             <TextView
                 android:id="@+id/refuel_kms"
@@ -47,18 +68,17 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                tools:text="100.000kms"
-                app:showKms="@{obj.kilometers}"/>
+                app:showKms="@{item.kilometers}"
+                tools:text="100.000kms"/>
 
             <TextView
                 android:id="@+id/refuel_cash"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{String.valueOf(obj.amountCash)}"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                tools:text="20.000 colones"
-                app:showCash="@{obj.amountCash}"/>
+                app:showCash="@{item.amountCash}"
+                tools:text="20.000 colones"/>
 
         </LinearLayout>
 

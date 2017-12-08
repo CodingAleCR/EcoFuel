@@ -8,28 +8,28 @@ import info.codingalecr.ecofuel.DateUtils;
 
 public class MFuelItem {
 
-    private long mFuelingTimeStamp;
+    private long mFuelingDate;
     private float mAmountLt;
     private float mAmountCash;
     private float mKilometers;
 
     public MFuelItem() {
-        mFuelingTimeStamp = DateUtils.getTime();
+        mFuelingDate = DateUtils.getTime();
     }
 
     public MFuelItem(long fuelingDate, float amountLt, float amountCash, float kilometers) {
-        mFuelingTimeStamp = fuelingDate;
+        mFuelingDate = fuelingDate;
         mAmountLt = amountLt;
         mAmountCash = amountCash;
         mKilometers = kilometers;
     }
 
     public long getFuelingDate() {
-        return mFuelingTimeStamp;
+        return mFuelingDate;
     }
 
     public void setFuelingDate(long fuelingDate) {
-        mFuelingTimeStamp = fuelingDate;
+        mFuelingDate = fuelingDate;
     }
 
     public float getAmountLt() {

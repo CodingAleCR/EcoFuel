@@ -19,8 +19,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.FuelItemFormActivity">
-        </activity>
+        <activity
+            android:name=".ui.activities.FuelItemFormActivity"
+            android:parentActivityName=".ui.activities.MainActivity"/>
     </application>
 
 </manifest>
