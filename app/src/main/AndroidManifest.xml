@@ -21,6 +21,7 @@
         </activity>
         <activity
             android:name=".ui.activities.FuelItemFormActivity"
+            android:label="@string/add_refuel"
             android:parentActivityName=".ui.activities.MainActivity"/>
     </application>
 
