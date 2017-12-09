@@ -56,7 +56,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorGray"
                 android:alpha="0.6"
-                android:visibility="gone"
                 android:gravity="center">
 
                 <ProgressBar
