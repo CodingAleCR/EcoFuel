@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import info.codingalecr.ecofuel.ui.activities.FuelItemFormActivity;
+import info.codingalecr.ecofuel.views.activities.FuelItemFormActivity;
 
 /**
  * Created by Alejandro on 11/26/2017.

@@ -1,38 +1,26 @@
-package info.codingalecr.ecofuel.ui.activities;
+package info.codingalecr.ecofuel.views.activities;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import info.codingalecr.ecofuel.ItemClickListener;
 import info.codingalecr.ecofuel.ProgressConductor;
 import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.databinding.ActivityMainBinding;
+import info.codingalecr.ecofuel.databinding.ActivityRefuelListBinding;
 import info.codingalecr.ecofuel.helpers.MainClickHelper;
 import info.codingalecr.ecofuel.models.MFuelItem;
-import info.codingalecr.ecofuel.ui.adapters.FuelItemAdapter;
+import info.codingalecr.ecofuel.views.adapters.FuelItemAdapter;
 
-public class MainActivity extends AppCompatActivity implements ItemClickListener, ProgressConductor {
+public class FuelListActivity extends AppCompatActivity implements ItemClickListener, ProgressConductor {
 
-    private ActivityMainBinding mBinding;
+    private ActivityRefuelListBinding mBinding;
 
     private FuelItemAdapter mFuelAdapter;
 
@@ -41,9 +29,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_refuel_list);
         init();
     }
 
@@ -55,28 +41,6 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         mFuelAdapter.setProgressConductor(this);
         mBinding.fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
         showRefuelList();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
