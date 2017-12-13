@@ -1,8 +1,5 @@
 package info.codingalecr.ecofuel.views.activities;
 
-import android.databinding.DataBindingUtil;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -16,33 +13,48 @@ import java.util.Date;
 import info.codingalecr.ecofuel.R;
 import info.codingalecr.ecofuel.databinding.ActivityFuelItemFormBinding;
 import info.codingalecr.ecofuel.models.MFuelItem;
+import info.codingalecr.ecofuel.views.base.BaseActivity;
 
-public class FuelItemFormActivity extends AppCompatActivity {
-
-    private ActivityFuelItemFormBinding mBinding;
+public class FuelItemFormActivity extends BaseActivity {
 
     private DatabaseReference mDatabase;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_fuel_item_form);
-        mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
+    public boolean withToolbar() {
+        return false;
+    }
 
+    @Override
+    public void initObj() {
+        mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
+    }
+
+    @Override
+    public void initUI() {
         clearForm();
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.activity_fuel_item_form;
+    }
+
+    @Override
+    public ActivityFuelItemFormBinding getBinding() {
+        return (ActivityFuelItemFormBinding) getBaseBinding();
     }
 
     public void addRefuel(View view) {
         MFuelItem item = new MFuelItem();
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, mBinding.datePickerRefuelDate.getYear());
-        calendar.set(Calendar.MONTH, mBinding.datePickerRefuelDate.getMonth());
-        calendar.set(Calendar.DAY_OF_MONTH, mBinding.datePickerRefuelDate.getDayOfMonth());
+        calendar.set(Calendar.YEAR, getBinding().datePickerRefuelDate.getYear());
+        calendar.set(Calendar.MONTH, getBinding().datePickerRefuelDate.getMonth());
+        calendar.set(Calendar.DAY_OF_MONTH, getBinding().datePickerRefuelDate.getDayOfMonth());
 
-        item.setAmountCash(Float.parseFloat(mBinding.textInputCash.getEditText().getText().toString()));
-        item.setAmountLt(Float.parseFloat(mBinding.textInputLiters.getEditText().getText().toString()));
-        item.setKilometers(Float.parseFloat(mBinding.textInputKilometers.getEditText().getText().toString()));
+        item.setAmountCash(Float.parseFloat(getBinding().textInputCash.getEditText().getText().toString()));
+        item.setAmountLt(Float.parseFloat(getBinding().textInputLiters.getEditText().getText().toString()));
+        item.setKilometers(Float.parseFloat(getBinding().textInputKilometers.getEditText().getText().toString()));
         DatabaseReference newRefuel = mDatabase.push();
         newRefuel.setValue(item, new DatabaseReference.CompletionListener() {
             @Override
@@ -56,9 +68,9 @@ public class FuelItemFormActivity extends AppCompatActivity {
     }
 
     public void clearForm() {
-        mBinding.textInputCash.getEditText().setText(null);
-        mBinding.textInputLiters.getEditText().setText(null);
-        mBinding.textInputKilometers.getEditText().setText(null);
+        getBinding().textInputCash.getEditText().setText(null);
+        getBinding().textInputLiters.getEditText().setText(null);
+        getBinding().textInputKilometers.getEditText().setText(null);
         clearDatePicker();
     }
 
@@ -67,6 +79,6 @@ public class FuelItemFormActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         cal.setTime(now);
 
-        mBinding.datePickerRefuelDate.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
+        getBinding().datePickerRefuelDate.init(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH), null);
     }
 }

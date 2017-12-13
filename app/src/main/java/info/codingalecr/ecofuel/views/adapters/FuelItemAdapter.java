@@ -12,6 +12,7 @@ import java.util.List;
 import info.codingalecr.ecofuel.ProgressConductor;
 import info.codingalecr.ecofuel.R;
 import info.codingalecr.ecofuel.models.MFuelItem;
+import info.codingalecr.ecofuel.views.base.BaseAdapter;
 
 /**
  * Created by aulate on 30/11/17.

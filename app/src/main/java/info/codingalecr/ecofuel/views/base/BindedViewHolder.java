@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views;
+package info.codingalecr.ecofuel.views.base;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;

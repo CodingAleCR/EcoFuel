@@ -1,6 +1,7 @@
 package info.codingalecr.ecofuel.views.activities;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,30 +18,42 @@ import info.codingalecr.ecofuel.databinding.ActivityRefuelListBinding;
 import info.codingalecr.ecofuel.helpers.MainClickHelper;
 import info.codingalecr.ecofuel.models.MFuelItem;
 import info.codingalecr.ecofuel.views.adapters.FuelItemAdapter;
+import info.codingalecr.ecofuel.views.base.BaseActivity;
 
-public class FuelListActivity extends AppCompatActivity implements ItemClickListener, ProgressConductor {
-
-    private ActivityRefuelListBinding mBinding;
+public class FuelListActivity extends BaseActivity implements ItemClickListener, ProgressConductor {
 
     private FuelItemAdapter mFuelAdapter;
 
     private DatabaseReference mDatabase;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_refuel_list);
-        init();
+    public boolean withToolbar() {
+        return false;
     }
 
-    public void init() {
+    @Override
+    public void initObj() {
         mFuelAdapter = new FuelItemAdapter();
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
 
         mFuelAdapter.setItemClickListener(this);
         mFuelAdapter.setProgressConductor(this);
-        mBinding.fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
+        getBinding().fabAdd.setOnClickListener(MainClickHelper.getNewFuelItemClickListener(this));
+    }
+
+    @Override
+    public void initUI() {
         showRefuelList();
+    }
+
+    @Override
+    public int getLayout() {
+        return R.layout.activity_refuel_list;
+    }
+
+    @Override
+    public ActivityRefuelListBinding getBinding() {
+        return (ActivityRefuelListBinding) getBaseBinding();
     }
 
     @Override
@@ -57,8 +70,8 @@ public class FuelListActivity extends AppCompatActivity implements ItemClickList
 
     public void showRefuelList() {
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        mBinding.fuelList.setLayoutManager(manager);
-        mBinding.fuelList.setAdapter(mFuelAdapter);
+        getBinding().fuelList.setLayoutManager(manager);
+        getBinding().fuelList.setAdapter(mFuelAdapter);
         mFuelAdapter.notifyDataSetChanged();
     }
 
@@ -70,11 +83,11 @@ public class FuelListActivity extends AppCompatActivity implements ItemClickList
 
     @Override
     public void showProgress() {
-        mBinding.progress.setVisibility(View.VISIBLE);
+        getBinding().progress.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgress() {
-        mBinding.progress.setVisibility(View.GONE);
+        getBinding().progress.setVisibility(View.GONE);
     }
 }
