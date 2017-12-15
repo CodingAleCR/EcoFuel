@@ -78,7 +78,12 @@ public class FuelListActivity extends BaseActivity implements ItemClickListener,
     @Override
     public void onItemClicked(int viewId, int position, boolean isLongClick) {
         MFuelItem item = mFuelAdapter.getItem(position);
-        Toast.makeText(this, item.toString(), Toast.LENGTH_LONG).show();
+        MFuelItem previous = position < mFuelAdapter.getItemCount() ? mFuelAdapter.getItem(position + 1) : null;
+        float diff = 0;
+        if (previous != null) {
+            diff = item.getKilometers() - previous.getKilometers();
+        }
+        Toast.makeText(this, item.toString() + " / Diff: " + diff, Toast.LENGTH_LONG).show();
     }
 
     @Override

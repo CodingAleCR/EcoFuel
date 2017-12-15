@@ -7,6 +7,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import info.codingalecr.ecofuel.ProgressConductor;
@@ -47,6 +49,12 @@ public class FuelItemAdapter extends BaseAdapter implements ValueEventListener {
     }
 
     public void setFuelItems(List<MFuelItem> mFuelItems) {
+        Collections.sort(mFuelItems, new Comparator<MFuelItem>() {
+            @Override
+            public int compare(MFuelItem item, MFuelItem t1) {
+                return Long.compare(t1.getFuelingDate(), item.getFuelingDate());
+            }
+        });
         this.mFuelItems = mFuelItems;
     }
 
@@ -70,8 +78,10 @@ public class FuelItemAdapter extends BaseAdapter implements ValueEventListener {
 
     @Override
     public void onCancelled(DatabaseError databaseError) {
-        hideProgress();
         Log.i("Database", databaseError.getMessage());
+        setFuelItems(new ArrayList<MFuelItem>());
+        notifyDataSetChanged();
+        hideProgress();
     }
 
     private void showProgress() {

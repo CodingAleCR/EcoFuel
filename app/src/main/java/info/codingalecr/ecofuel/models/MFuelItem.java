@@ -56,6 +56,28 @@ public class MFuelItem {
         mKilometers = kilometers;
     }
 
+    public float getPerformance() {
+        if (mKilometers > 0 && mAmountLt > 0) {
+            return mKilometers / mAmountLt;
+        }
+        return 0;
+    }
+
+    public float getKilometerDifference(float kilometers) {
+        if (kilometers < getKilometers()) {
+            return getKilometers() - kilometers;
+        }
+        return 0;
+    }
+
+    public float priceByLiter(float kilometers) {
+        float kmDiff = getKilometerDifference(kilometers);
+        if (mAmountCash > 0 && kmDiff > 0) {
+            return mAmountCash / kmDiff;
+        }
+        return 0;
+    }
+
     @Override
     public String toString() {
         return "Kms: " + getKilometers() + " / Cash: " + getAmountCash() + " / Liters: " + getAmountLt();
