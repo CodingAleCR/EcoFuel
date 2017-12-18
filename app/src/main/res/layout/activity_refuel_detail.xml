@@ -18,15 +18,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:divider="@color/colorBlack"
-            android:orientation="vertical"
-            android:showDividers="middle">
+            android:orientation="vertical" >
 
             <TextView
                 style="@style/LabelTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:alpha="0.6"
+                android:layout_marginTop="0dp"
                 android:background="@color/colorGray"
                 android:padding="@dimen/base_keyline"
                 android:text="Reabastecimiento"
