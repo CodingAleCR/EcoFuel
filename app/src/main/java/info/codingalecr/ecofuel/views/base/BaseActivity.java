@@ -33,17 +33,17 @@ public abstract class BaseActivity extends AppCompatActivity {
         initUI();
     }
 
+    public ViewDataBinding getBaseBinding() {
+        return mBinding;
+    }
+
     public abstract boolean withToolbar();
-
-    public abstract void initObj();
-
-    public abstract void initUI();
 
     public abstract int getLayout();
 
     public abstract ViewDataBinding getBinding();
 
-    public ViewDataBinding getBaseBinding() {
-        return mBinding;
-    }
+    public abstract void initObj();
+
+    public abstract void initUI();
 }

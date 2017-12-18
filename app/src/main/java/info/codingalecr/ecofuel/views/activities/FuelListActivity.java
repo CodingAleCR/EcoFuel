@@ -1,5 +1,6 @@
 package info.codingalecr.ecofuel.views.activities;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -79,11 +80,11 @@ public class FuelListActivity extends BaseActivity implements ItemClickListener,
     public void onItemClicked(int viewId, int position, boolean isLongClick) {
         MFuelItem item = mFuelAdapter.getItem(position);
         MFuelItem previous = position < mFuelAdapter.getItemCount() ? mFuelAdapter.getItem(position + 1) : null;
-        float diff = 0;
-        if (previous != null) {
-            diff = item.getKilometers() - previous.getKilometers();
-        }
-        Toast.makeText(this, item.toString() + " / Diff: " + diff, Toast.LENGTH_LONG).show();
+        Intent toDetail = new Intent(this, RefuelDetailActivity.class);
+        toDetail.putExtra("ITEM", item);
+        toDetail.putExtra("PREVIOUS", previous);
+
+        startActivity(toDetail);
     }
 
     @Override

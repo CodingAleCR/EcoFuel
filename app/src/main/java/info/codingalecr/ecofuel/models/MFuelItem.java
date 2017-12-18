@@ -1,12 +1,14 @@
 package info.codingalecr.ecofuel.models;
 
+import java.io.Serializable;
+
 import info.codingalecr.ecofuel.DateUtils;
 
 /**
  * Created by Alejandro on 11/27/2017.
  */
 
-public class MFuelItem {
+public class MFuelItem implements Serializable {
 
     private long mFuelingDate;
     private float mAmountLt;
@@ -56,9 +58,9 @@ public class MFuelItem {
         mKilometers = kilometers;
     }
 
-    public float getPerformance() {
-        if (mKilometers > 0 && mAmountLt > 0) {
-            return mKilometers / mAmountLt;
+    public float getPerformance(float kilometers) {
+        if (getKilometerDifference(kilometers) > 0 && mAmountLt > 0) {
+            return getKilometerDifference(kilometers) / mAmountLt;
         }
         return 0;
     }
@@ -70,10 +72,9 @@ public class MFuelItem {
         return 0;
     }
 
-    public float priceByLiter(float kilometers) {
-        float kmDiff = getKilometerDifference(kilometers);
-        if (mAmountCash > 0 && kmDiff > 0) {
-            return mAmountCash / kmDiff;
+    public float priceByLiter() {
+        if (mAmountLt > 0 && mAmountCash > 0) {
+            return mAmountCash / mAmountLt;
         }
         return 0;
     }

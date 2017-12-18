@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="info.codingalecr.ecofuel.models.MFuelItem"/>
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/colorBlack"
+            android:orientation="vertical"
+            android:showDividers="middle">
+
+            <TextView
+                style="@style/LabelTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:background="@color/colorGray"
+                android:padding="@dimen/base_keyline"
+                android:text="Reabastecimiento"
+                android:textColor="@color/colorBlack"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/ic_gas_station"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical"
+                    android:padding="@dimen/base_keyline">
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Fecha de reabastecimiento"/>
+
+                    <TextView
+                        android:id="@+id/refuel_date"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:showDate="@{item.fuelingDate}"
+                        tools:text="dd/mm/aaaa"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cantidad en litros"/>
+
+                    <TextView
+                        android:id="@+id/refuel_amount_liters"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:showLts="@{item.amountLt}"
+                        tools:text="40.39 lts"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Monto pagado"/>
+
+                    <TextView
+                        android:id="@+id/refuel_amount_cash"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:showCash="@{item.amountCash}"
+                        tools:text="26,634.23 col"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Odómetro"/>
+
+                    <TextView
+                        android:id="@+id/refuel_odometer"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:showKms="@{item.kilometers}"
+                        tools:text="7,897 kms"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/LabelTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.6"
+                android:background="@color/colorGray"
+                android:padding="@dimen/base_keyline"
+                android:text="Historial"
+                android:textColor="@color/colorBlack"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:src="@drawable/ic_history"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/base_keyline"
+                    android:paddingEnd="@dimen/base_keyline"
+                    android:paddingStart="@dimen/base_keyline">
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Último reabastecimiento"/>
+
+                    <TextView
+                        android:id="@+id/refuel_days_since"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="6 días atrás"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Rendimiento por Km/l"/>
+
+                    <TextView
+                        android:id="@+id/refuel_performance"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="15.9 km/l"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Distancia"/>
+
+                    <TextView
+                        android:id="@+id/refuel_distance"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="582 kms"/>
+
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Precio por litro"/>
+
+                    <TextView
+                        android:id="@+id/refuel_price_per_liter"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="6 días atrás"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

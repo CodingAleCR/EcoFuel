@@ -8,6 +8,13 @@
     <string name="settings">Configuracion</string>
     <string name="title_activity_settings">Configuración</string>
 
+    <string name="liters">Litros</string>
+    <string name="cash">Colones</string>
+    <string name="kilometers">Kilómetros</string>
+    <string name="days">Días</string>
+    <string name="kilometer_per_liter">Km/Litro</string>
+    <string name="cash_per_liter">Colones/Litro</string>
+
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
