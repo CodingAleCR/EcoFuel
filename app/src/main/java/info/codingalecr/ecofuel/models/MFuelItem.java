@@ -10,6 +10,7 @@ import info.codingalecr.ecofuel.DateUtils;
 
 public class MFuelItem implements Serializable {
 
+    private String mKey;
     private long mFuelingDate;
     private float mAmountLt;
     private float mAmountCash;
@@ -24,6 +25,14 @@ public class MFuelItem implements Serializable {
         mAmountLt = amountLt;
         mAmountCash = amountCash;
         mKilometers = kilometers;
+    }
+
+    public String getKey() {
+        return mKey;
+    }
+
+    public void setKey(String key) {
+        mKey = key;
     }
 
     public long getFuelingDate() {

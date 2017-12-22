@@ -1,19 +1,21 @@
 <resources>
-    <string name="app_name">EcoFuel</string>
+    <string name="app_name">Re:Fuel</string>
     <string name="refuels_list_title">Reabastecimientos de gasolina</string>
     <string name="refuels_title">Reabastecimientos</string>
     <string name="action_settings">Settings</string>
     <string name="add_refuel">Agregar reabastecimiento</string>
     <string name="refuel_added">Reabastecimiento agregado exitosamente.</string>
-    <string name="settings">Configuracion</string>
     <string name="title_activity_settings">Configuración</string>
 
-    <string name="liters">Litros</string>
-    <string name="cash">Colones</string>
-    <string name="kilometers">Kilómetros</string>
-    <string name="days">Días</string>
-    <string name="kilometer_per_liter">Km/Litro</string>
-    <string name="cash_per_liter">Colones/Litro</string>
+    <string name="liters"> %s Litros</string>
+    <string name="liters_abbreviation"> %s lt</string>
+    <string name="cash"> %s Colones</string>
+    <string name="cash_abbreviation"> %s col.</string>
+    <string name="kilometers"> %s Kilómetros</string>
+    <string name="kilometers_abbreviation"> %s kms</string>
+    <string name="days_since">Hace %s días</string>
+    <string name="kilometer_per_liter"> %s Km/Litro</string>
+    <string name="cash_per_liter"> %s Colones/Litro</string>
 
     <!-- Strings related to Settings -->
 
@@ -100,4 +102,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="gas_usage">Uso de gasolina</string>
+    <string name="liter_quantity">Cantidad en litros</string>
+    <string name="cash_payed">Monto pagado</string>
+    <string name="odometer">Odómetro</string>
+    <string name="price_per_liter">Precio por litro</string>
 </resources>

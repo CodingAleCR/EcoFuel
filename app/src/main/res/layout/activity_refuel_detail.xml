@@ -18,17 +18,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:divider="@color/colorGray"
+            android:orientation="vertical"
+            android:showDividers="middle">
 
             <TextView
                 style="@style/LabelTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:alpha="0.6"
                 android:layout_marginTop="0dp"
+                android:alpha="0.6"
                 android:background="@color/colorGray"
                 android:padding="@dimen/base_keyline"
-                android:text="Reabastecimiento"
+                android:text="@string/gas_usage"
                 android:textColor="@color/colorBlack"/>
 
             <LinearLayout
@@ -38,12 +40,14 @@
                 android:weightSum="1">
 
                 <ImageView
+                    android:id="@+id/usage_subtitle"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.3"
                     android:src="@drawable/ic_gas_station"/>
 
                 <LinearLayout
+                    android:id="@+id/usage"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.7"
@@ -54,7 +58,7 @@
                         style="@style/LabelTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Fecha de reabastecimiento"/>
+                        android:text="Fecha"/>
 
                     <TextView
                         android:id="@+id/refuel_date"
@@ -68,7 +72,7 @@
                         style="@style/LabelTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cantidad en litros"/>
+                        android:text="@string/liter_quantity"/>
 
                     <TextView
                         android:id="@+id/refuel_amount_liters"
@@ -82,7 +86,7 @@
                         style="@style/LabelTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Monto pagado"/>
+                        android:text="@string/cash_payed"/>
 
                     <TextView
                         android:id="@+id/refuel_amount_cash"
@@ -96,7 +100,7 @@
                         style="@style/LabelTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Odómetro"/>
+                        android:text="@string/odometer"/>
 
                     <TextView
                         android:id="@+id/refuel_odometer"
@@ -106,21 +110,37 @@
                         app:showKms="@{item.kilometers}"
                         tools:text="7,897 kms"/>
 
+                    <TextView
+                        style="@style/LabelTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price_per_liter"/>
+
+                    <TextView
+                        android:id="@+id/refuel_price_per_liter"
+                        style="@style/DetailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:text="628 colones"/>
+
                 </LinearLayout>
 
             </LinearLayout>
 
             <TextView
+                android:id="@+id/analysis_subtitle"
                 style="@style/LabelTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
                 android:alpha="0.6"
                 android:background="@color/colorGray"
                 android:padding="@dimen/base_keyline"
-                android:text="Historial"
+                android:text="Análisis de rendimiento"
                 android:textColor="@color/colorBlack"/>
 
             <LinearLayout
+                android:id="@+id/analysis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -171,7 +191,7 @@
                         style="@style/LabelTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Distancia"/>
+                        android:text="Distancia recorrida"/>
 
                     <TextView
                         android:id="@+id/refuel_distance"
@@ -179,19 +199,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:text="582 kms"/>
-
-                    <TextView
-                        style="@style/LabelTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Precio por litro"/>
-
-                    <TextView
-                        android:id="@+id/refuel_price_per_liter"
-                        style="@style/DetailTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:text="6 días atrás"/>
 
                 </LinearLayout>
 

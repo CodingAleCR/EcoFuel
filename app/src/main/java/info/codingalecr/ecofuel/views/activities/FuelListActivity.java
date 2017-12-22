@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import info.codingalecr.ecofuel.Contracts;
 import info.codingalecr.ecofuel.ItemClickListener;
 import info.codingalecr.ecofuel.ProgressConductor;
 import info.codingalecr.ecofuel.R;
@@ -34,7 +35,7 @@ public class FuelListActivity extends BaseActivity implements ItemClickListener,
 
     @Override
     public void initObj() {
-        mFuelAdapter = new FuelItemAdapter();
+        mFuelAdapter = FuelItemAdapter.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference("refuels");
 
         mFuelAdapter.setItemClickListener(this);
@@ -81,8 +82,8 @@ public class FuelListActivity extends BaseActivity implements ItemClickListener,
         MFuelItem item = mFuelAdapter.getItem(position);
         MFuelItem previous = position < mFuelAdapter.getItemCount() ? mFuelAdapter.getItem(position + 1) : null;
         Intent toDetail = new Intent(this, RefuelDetailActivity.class);
-        toDetail.putExtra("ITEM", item);
-        toDetail.putExtra("PREVIOUS", previous);
+        toDetail.putExtra(Contracts.REFUEL_DETAIL_ACTIVITY.ITEM, item);
+        toDetail.putExtra(Contracts.REFUEL_DETAIL_ACTIVITY.PREVIOUS, previous);
 
         startActivity(toDetail);
     }

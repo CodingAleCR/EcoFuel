@@ -26,7 +26,13 @@ public class FuelItemAdapter extends BaseAdapter implements ValueEventListener {
 
     private ProgressConductor mProgressConductor;
 
-    public FuelItemAdapter() {
+    private static final FuelItemAdapter ourInstance = new FuelItemAdapter();
+
+    public static FuelItemAdapter getInstance() {
+        return ourInstance;
+    }
+
+    private FuelItemAdapter() {
         mFuelItems = new ArrayList<>();
     }
 
@@ -69,7 +75,10 @@ public class FuelItemAdapter extends BaseAdapter implements ValueEventListener {
         for (DataSnapshot item :
                 dataSnapshot.getChildren()) {
             MFuelItem fuelItem = item.getValue(MFuelItem.class);
-            items.add(fuelItem);
+            if (fuelItem != null) {
+                fuelItem.setKey(item.getKey());
+                items.add(fuelItem);
+            }
         }
         setFuelItems(items);
         notifyDataSetChanged();

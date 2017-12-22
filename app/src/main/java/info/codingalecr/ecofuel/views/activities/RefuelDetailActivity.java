@@ -1,6 +1,9 @@
 package info.codingalecr.ecofuel.views.activities;
 
-import info.codingalecr.ecofuel.DateUtils;
+import android.view.View;
+
+import info.codingalecr.ecofuel.BindingUtils;
+import info.codingalecr.ecofuel.Contracts;
 import info.codingalecr.ecofuel.R;
 import info.codingalecr.ecofuel.databinding.ActivityRefuelDetailBinding;
 import info.codingalecr.ecofuel.models.MFuelItem;
@@ -24,14 +27,28 @@ public class RefuelDetailActivity extends BaseActivity {
 
     @Override
     public void initUI() {
-        MFuelItem item = (MFuelItem) getIntent().getSerializableExtra("ITEM");
-        MFuelItem previous = (MFuelItem) getIntent().getSerializableExtra("PREVIOUS");
-        getBinding().setItem(item);
+        MFuelItem item = (MFuelItem) getIntent().getSerializableExtra(Contracts.REFUEL_DETAIL_ACTIVITY.ITEM);
+        if (item != null) {
+            getBinding().usage.setVisibility(View.VISIBLE);
+            getBinding().usageSubtitle.setVisibility(View.VISIBLE);
+            getBinding().setItem(item);
+            BindingUtils.showCash(getBinding().refuelPricePerLiter, item.priceByLiter());
+        } else {
+            getBinding().usage.setVisibility(View.GONE);
+            getBinding().usageSubtitle.setVisibility(View.GONE);
+        }
 
-        getBinding().refuelDaysSince.setText(String.valueOf(DateUtils.showDate(previous.getFuelingDate())));
-        getBinding().refuelPerformance.setText(String.valueOf(item.getPerformance(previous.getKilometers())));
-        getBinding().refuelDistance.setText(String.valueOf(item.getKilometerDifference(previous.getKilometers())));
-        getBinding().refuelPricePerLiter.setText(String.valueOf(item.priceByLiter()));
+        MFuelItem previous = (MFuelItem) getIntent().getSerializableExtra(Contracts.REFUEL_DETAIL_ACTIVITY.PREVIOUS);
+        if (previous != null) {
+            getBinding().analysis.setVisibility(View.VISIBLE);
+            getBinding().analysisSubtitle.setVisibility(View.VISIBLE);
+            BindingUtils.showDaysDifference(getBinding().refuelDaysSince, previous.getFuelingDate(), item.getFuelingDate());
+            BindingUtils.showPerformance(getBinding().refuelPerformance, item.getPerformance(previous.getKilometers()));
+            BindingUtils.showKilometers(getBinding().refuelDistance, item.getKilometerDifference(previous.getKilometers()));
+        } else {
+            getBinding().analysis.setVisibility(View.GONE);
+            getBinding().analysisSubtitle.setVisibility(View.GONE);
+        }
     }
 
     @Override

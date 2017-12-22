@@ -39,7 +39,7 @@
                 android:padding="2dp"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                app:showLts="@{item.amountLt}"
+                app:showLitersAbbreviation="@{item.amountLt}"
                 tools:text="42lts"/>
 
             <ImageView

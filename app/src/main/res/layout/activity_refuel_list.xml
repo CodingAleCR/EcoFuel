@@ -17,11 +17,13 @@
             android:orientation="vertical">
 
             <TextView
+                android:background="@color/colorGray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/base_keyline"
+                android:alpha="0.6"
                 android:text="@string/refuels_list_title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Menu"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/fuel_list"

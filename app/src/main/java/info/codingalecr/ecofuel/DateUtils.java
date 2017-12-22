@@ -19,6 +19,12 @@ public class DateUtils {
         return simpleDateFormat.format(timestamp);
     }
 
+    public static String showDateDifferenceInDays(long startTime, long endTime) {
+        long diffTime = endTime - startTime;
+        long diffDays = diffTime / (1000 * 60 * 60 * 24);
+        return String.valueOf(diffDays);
+    }
+
     public static long getTime() {
         return new Date().getTime();
     }
