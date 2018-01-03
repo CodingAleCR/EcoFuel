@@ -1,9 +1,9 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
-import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.databinding.ActivityMenuBinding;
-import info.codingalecr.ecofuel.helpers.MenuClickHelper;
-import info.codingalecr.ecofuel.views.base.BaseActivity;
+import info.codingalecr.refuel.R;
+import info.codingalecr.refuel.databinding.ActivityMenuBinding;
+import info.codingalecr.refuel.helpers.MenuClickHelper;
+import info.codingalecr.refuel.views.base.BaseActivity;
 
 public class MenuActivity extends BaseActivity {
 

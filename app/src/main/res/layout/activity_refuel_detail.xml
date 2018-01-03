@@ -8,7 +8,7 @@
 
         <variable
             name="item"
-            type="info.codingalecr.ecofuel.models.MFuelItem"/>
+            type="info.codingalecr.refuel.models.MFuelItem"/>
     </data>
 
     <ScrollView

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="info.codingalecr.ecofuel">
+          package="info.codingalecr.refuel">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -14,12 +14,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".ReFuelApplication"
+        android:name="info.codingalecr.refuel.ReFuelApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".views.activities.MenuActivity"
+            android:name="info.codingalecr.refuel.views.activities.MenuActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -29,36 +29,36 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.activities.FuelListActivity"
+            android:name="info.codingalecr.refuel.views.activities.FuelListActivity"
             android:label="@string/refuels_title"
-            android:parentActivityName=".views.activities.MenuActivity">
+            android:parentActivityName="info.codingalecr.refuel.views.activities.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="info.codingalecr.ecofuel.views.activities.MenuActivity"/>
+                android:value="info.codingalecr.refuel.views.activities.MenuActivity"/>
         </activity>
         <activity
-            android:name=".views.activities.RefuelDetailActivity"
+            android:name="info.codingalecr.refuel.views.activities.RefuelDetailActivity"
             android:label="@string/refuels_title"
-            android:parentActivityName=".views.activities.FuelListActivity">
+            android:parentActivityName="info.codingalecr.refuel.views.activities.FuelListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="info.codingalecr.ecofuel.views.activities.FuelListActivity"/>
+                android:value="info.codingalecr.refuel.views.activities.FuelListActivity"/>
         </activity>
         <activity
-            android:name=".views.activities.FuelItemFormActivity"
+            android:name="info.codingalecr.refuel.views.activities.FuelItemFormActivity"
             android:label="@string/add_refuel"
-            android:parentActivityName=".views.activities.FuelListActivity">
+            android:parentActivityName="info.codingalecr.refuel.views.activities.FuelListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="info.codingalecr.ecofuel.views.activities.FuelListActivity"/>
+                android:value="info.codingalecr.refuel.views.activities.FuelListActivity"/>
         </activity>
         <activity
-            android:name=".views.activities.SettingsActivity"
+            android:name="info.codingalecr.refuel.views.activities.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".views.activities.MenuActivity">
+            android:parentActivityName="info.codingalecr.refuel.views.activities.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="info.codingalecr.ecofuel.views.activities.MenuActivity"/>
+                android:value="info.codingalecr.refuel.views.activities.MenuActivity"/>
         </activity>
     </application>
 

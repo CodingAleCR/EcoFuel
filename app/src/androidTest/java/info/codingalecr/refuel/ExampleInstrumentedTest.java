@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel;
+package info.codingalecr.refuel;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

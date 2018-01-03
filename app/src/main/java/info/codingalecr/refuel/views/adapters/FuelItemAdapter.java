@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.adapters;
+package info.codingalecr.refuel.views.adapters;
 
 import android.util.Log;
 
@@ -11,10 +11,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import info.codingalecr.ecofuel.ProgressConductor;
-import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.models.MFuelItem;
-import info.codingalecr.ecofuel.views.base.BaseAdapter;
+import info.codingalecr.refuel.ProgressConductor;
+import info.codingalecr.refuel.R;
+import info.codingalecr.refuel.models.MFuelItem;
+import info.codingalecr.refuel.views.base.BaseAdapter;
 
 /**
  * Created by aulate on 30/11/17.

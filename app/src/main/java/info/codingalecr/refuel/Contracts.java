@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel;
+package info.codingalecr.refuel;
 
 /**
  * Created by aulate on 22/12/17.

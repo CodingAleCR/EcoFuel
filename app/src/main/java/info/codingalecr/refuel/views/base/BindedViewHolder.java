@@ -1,10 +1,10 @@
-package info.codingalecr.ecofuel.views.base;
+package info.codingalecr.refuel.views.base;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import info.codingalecr.ecofuel.BR;
+import info.codingalecr.refuel.BR;
 
 /**
  * Created by aulate on 4/12/17.

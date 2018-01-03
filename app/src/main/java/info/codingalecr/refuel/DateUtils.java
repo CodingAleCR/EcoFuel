@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel;
+package info.codingalecr.refuel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

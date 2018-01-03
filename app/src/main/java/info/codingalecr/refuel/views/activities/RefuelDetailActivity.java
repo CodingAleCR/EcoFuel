@@ -1,13 +1,13 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
 import android.view.View;
 
-import info.codingalecr.ecofuel.BindingUtils;
-import info.codingalecr.ecofuel.Contracts;
-import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.databinding.ActivityRefuelDetailBinding;
-import info.codingalecr.ecofuel.models.MFuelItem;
-import info.codingalecr.ecofuel.views.base.BaseActivity;
+import info.codingalecr.refuel.BindingUtils;
+import info.codingalecr.refuel.Contracts;
+import info.codingalecr.refuel.R;
+import info.codingalecr.refuel.databinding.ActivityRefuelDetailBinding;
+import info.codingalecr.refuel.models.MFuelItem;
+import info.codingalecr.refuel.views.base.BaseActivity;
 
 /**
  * Created by aulate on 18/12/17.

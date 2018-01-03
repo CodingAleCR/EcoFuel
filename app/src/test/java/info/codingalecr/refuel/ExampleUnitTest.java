@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel;
+package info.codingalecr.refuel;
 
 import org.junit.Test;
 

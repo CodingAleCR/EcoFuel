@@ -1,7 +1,6 @@
-package info.codingalecr.ecofuel;
+package info.codingalecr.refuel;
 
 import android.databinding.BindingAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.math.RoundingMode;

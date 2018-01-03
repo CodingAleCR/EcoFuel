@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
 import android.view.View;
 import android.widget.Toast;
@@ -10,10 +10,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.Date;
 
-import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.databinding.ActivityFuelItemFormBinding;
-import info.codingalecr.ecofuel.models.MFuelItem;
-import info.codingalecr.ecofuel.views.base.BaseActivity;
+import info.codingalecr.refuel.R;
+import info.codingalecr.refuel.databinding.ActivityFuelItemFormBinding;
+import info.codingalecr.refuel.models.MFuelItem;
+import info.codingalecr.refuel.views.base.BaseActivity;
 
 public class FuelItemFormActivity extends BaseActivity {
 

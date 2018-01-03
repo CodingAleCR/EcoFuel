@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
 
 import android.annotation.TargetApi;
@@ -21,7 +21,7 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
 
-import info.codingalecr.ecofuel.R;
+import info.codingalecr.refuel.R;
 
 import java.util.List;
 

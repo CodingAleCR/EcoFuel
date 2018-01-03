@@ -1,8 +1,8 @@
-package info.codingalecr.ecofuel.models;
+package info.codingalecr.refuel.models;
 
 import java.io.Serializable;
 
-import info.codingalecr.ecofuel.DateUtils;
+import info.codingalecr.refuel.DateUtils;
 
 /**
  * Created by Alejandro on 11/27/2017.

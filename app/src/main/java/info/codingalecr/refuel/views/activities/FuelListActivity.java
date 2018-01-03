@@ -1,26 +1,21 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import info.codingalecr.ecofuel.Contracts;
-import info.codingalecr.ecofuel.ItemClickListener;
-import info.codingalecr.ecofuel.ProgressConductor;
-import info.codingalecr.ecofuel.R;
-import info.codingalecr.ecofuel.databinding.ActivityRefuelListBinding;
-import info.codingalecr.ecofuel.helpers.MainClickHelper;
-import info.codingalecr.ecofuel.models.MFuelItem;
-import info.codingalecr.ecofuel.views.adapters.FuelItemAdapter;
-import info.codingalecr.ecofuel.views.base.BaseActivity;
+import info.codingalecr.refuel.Contracts;
+import info.codingalecr.refuel.ItemClickListener;
+import info.codingalecr.refuel.ProgressConductor;
+import info.codingalecr.refuel.R;
+import info.codingalecr.refuel.databinding.ActivityRefuelListBinding;
+import info.codingalecr.refuel.helpers.MainClickHelper;
+import info.codingalecr.refuel.models.MFuelItem;
+import info.codingalecr.refuel.views.adapters.FuelItemAdapter;
+import info.codingalecr.refuel.views.base.BaseActivity;
 
 public class FuelListActivity extends BaseActivity implements ItemClickListener, ProgressConductor {
 

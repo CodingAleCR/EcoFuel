@@ -1,11 +1,11 @@
-package info.codingalecr.ecofuel.helpers;
+package info.codingalecr.refuel.helpers;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import info.codingalecr.ecofuel.views.activities.FuelListActivity;
-import info.codingalecr.ecofuel.views.activities.SettingsActivity;
+import info.codingalecr.refuel.views.activities.FuelListActivity;
+import info.codingalecr.refuel.views.activities.SettingsActivity;
 
 /**
  * Created by aulate on 12/12/17.

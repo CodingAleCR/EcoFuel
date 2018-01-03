@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.base;
+package info.codingalecr.refuel.views.base;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
-import info.codingalecr.ecofuel.R;
+import info.codingalecr.refuel.R;
 
 /**
  * Created by aulate on 12/12/17.

@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.base;
+package info.codingalecr.refuel.views.base;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -7,8 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import info.codingalecr.ecofuel.ItemClickListener;
-import info.codingalecr.ecofuel.views.base.BindedViewHolder;
+import info.codingalecr.refuel.ItemClickListener;
 
 /**
  * Created by aulate on 4/12/17.

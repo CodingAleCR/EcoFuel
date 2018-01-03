@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="info.codingalecr.ecofuel.views.activities.FuelListActivity"
+        tools:context="info.codingalecr.refuel.views.activities.FuelListActivity"
         tools:showIn="@layout/activity_refuel_list">
 
         <LinearLayout

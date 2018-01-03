@@ -1,4 +1,4 @@
-package info.codingalecr.ecofuel.views.activities;
+package info.codingalecr.refuel.views.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
