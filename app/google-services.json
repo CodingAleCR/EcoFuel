@@ -8,6 +8,50 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:506136492343:android:7706e36515d90ffe",
+        "android_client_info": {
+          "package_name": "com.codingalecr.refuel_kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506136492343-ueabj8kekor54h1j73m4onkudptotbr2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codingalecr.refuel_kotlin",
+            "certificate_hash": "373366c84cb51c9b9abbfe8c36514346c659ab64"
+          }
+        },
+        {
+          "client_id": "506136492343-i9n91v0bn9ps3o6t3s5hqrtkpbc8aad4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJCsTIKMYUHnvfeVHayLTJMJ4Q6mIe-k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506136492343-i9n91v0bn9ps3o6t3s5hqrtkpbc8aad4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:506136492343:android:09c006984b40ba9b",
         "android_client_info": {
           "package_name": "info.codingalecr.ecofuel"
@@ -15,11 +59,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "506136492343-d9n1ur2cktr42441ndi86h9ebfbjd0e2.apps.googleusercontent.com",
+          "client_id": "506136492343-s30b9m16r0vslpq7eekq7oqg6nl7mfga.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "info.codingalecr.ecofuel",
-            "certificate_hash": "2b324ef869a3c1e2b72ff4118c528a8b972ba349"
+            "certificate_hash": "373366c84cb51c9b9abbfe8c36514346c659ab64"
           }
         },
         {

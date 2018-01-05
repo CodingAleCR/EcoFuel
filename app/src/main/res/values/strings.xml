@@ -7,6 +7,12 @@
     <string name="refuel_added">Reabastecimiento agregado exitosamente.</string>
     <string name="title_activity_settings">Configuración</string>
 
+    <string name="gas_usage">Uso de gasolina</string>
+    <string name="liter_quantity">Cantidad en litros</string>
+    <string name="cash_payed">Monto pagado</string>
+    <string name="odometer">Odómetro</string>
+    <string name="price_per_liter">Precio por litro</string>
+
     <string name="liters"> %s Litros</string>
     <string name="liters_abbreviation"> %s lt</string>
     <string name="cash"> %s Colones</string>
@@ -102,9 +108,4 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="gas_usage">Uso de gasolina</string>
-    <string name="liter_quantity">Cantidad en litros</string>
-    <string name="cash_payed">Monto pagado</string>
-    <string name="odometer">Odómetro</string>
-    <string name="price_per_liter">Precio por litro</string>
 </resources>
