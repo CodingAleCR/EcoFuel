@@ -39,10 +39,13 @@ class FuelItemViewModel(var item: MFuelItem = MFuelItem()) : ViewModel() {
         } else 0f
     }
 
+    var isSaved : MutableLiveData<Boolean> = MutableLiveData()
+
     fun addRefuelItem(fuelingDate: Long = Date().time,
                       amountLt: Float? = 0.toFloat(),
                       amountCash: Float? = 0.toFloat(),
-                      odometer: Float? = 0.toFloat()) {
+                      odometer: Float? = 0.toFloat()) : LiveData<Boolean> {
+        isSaved.postValue(false)
         item = MFuelItem(
                 fuelingDate = fuelingDate,
                 amountCash = amountCash!!,
@@ -52,12 +55,15 @@ class FuelItemViewModel(var item: MFuelItem = MFuelItem()) : ViewModel() {
 
         val listener = DatabaseReference.CompletionListener { databaseError, _ ->
             if (databaseError == null) {
-
+                isSaved.postValue(true)
+            } else {
+                isSaved.postValue(false)
             }
         }
 
         fuelItemRepository.addRefuel(item, listener)
 
+        return isSaved
     }
 
 

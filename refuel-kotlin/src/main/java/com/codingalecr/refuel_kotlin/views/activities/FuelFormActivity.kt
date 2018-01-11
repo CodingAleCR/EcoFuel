@@ -7,6 +7,7 @@ import com.codingalecr.refuel_kotlin.getDateInMillis
 import com.codingalecr.refuel_kotlin.viewmodels.FuelItemViewModel
 import com.codingalecr.refuel_kotlin.views.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_fuel_item_form.*
+import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 import java.util.*
 
@@ -42,6 +43,14 @@ class FuelFormActivity : BaseActivity() {
     }
 
     override fun initObservers() {
+        val observer = Observer<Boolean> {
+            if (it!!) {
+                longToast(R.string.refuel_added)
+                finish()
+            }
+        }
+
+        fuelItemViewModel?.isSaved?.observe(this, observer)
     }
 
     override fun initUI() {
