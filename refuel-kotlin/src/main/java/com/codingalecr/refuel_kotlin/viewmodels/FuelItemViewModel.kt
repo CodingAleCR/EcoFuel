@@ -13,31 +13,9 @@ import android.arch.lifecycle.MutableLiveData
 /**
  * Created by aulate on 5/1/18.
  */
-class FuelItemViewModel(var item: MFuelItem = MFuelItem()) : ViewModel() {
+open class FuelItemViewModel(private var item: MFuelItem = MFuelItem()) : ViewModel() {
 
     private var fuelItemRepository: FuelItemRepository = FuelItemRepository()
-
-    init {
-        item = MFuelItem()
-    }
-
-    fun getPerformance(kilometers: Float): Float {
-        return if (getKilometerDifference(kilometers) > 0 && item.amountLt > 0) {
-            getKilometerDifference(kilometers) / item.amountLt
-        } else 0f
-    }
-
-    fun getKilometerDifference(kilometers: Float): Float {
-        return if (kilometers < kilometers) {
-            kilometers - kilometers
-        } else 0f
-    }
-
-    fun priceByLiter(): Float {
-        return if (item.amountLt > 0 && item.amountCash > 0) {
-            item.amountCash / item.amountLt
-        } else 0f
-    }
 
     var isSaved : MutableLiveData<Boolean> = MutableLiveData()
 
