@@ -1,9 +1,12 @@
 package com.codingalecr.refuel_kotlin
 
+import android.widget.DatePicker
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_fuel_item_form.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by aulate on 5/1/18.
@@ -73,4 +76,12 @@ fun TextView.showDaysDifference(startTime: Long, endTime: Long) {
     val diffDays = diffTime / (1000 * 60 * 60 * 24)
     val daysString = String.format(daysRes, diffDays.toString())
     this.text = daysString
+}
+
+fun DatePicker.getDateInMillis(): Long {
+    val calendar = Calendar.getInstance()
+    calendar.set(Calendar.YEAR, year)
+    calendar.set(Calendar.MONTH, month)
+    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+    return calendar.timeInMillis
 }

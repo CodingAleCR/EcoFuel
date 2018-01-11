@@ -12,7 +12,7 @@ import com.codingalecr.refuel_kotlin.repositories.FuelItemRepository
 class FuelItemListViewModel : ViewModel(), LifecycleObserver {
 
     private var fuelItemRepository : FuelItemRepository = FuelItemRepository()
-    val fuelItemList:  LiveData<List<MFuelItem>> = fuelItemRepository.data
+    val fuelItemList:  LiveData<List<MFuelItem>> = fuelItemRepository.allItems
 
     fun initFuelList() {
         fuelItemRepository.getAllFuelItems()

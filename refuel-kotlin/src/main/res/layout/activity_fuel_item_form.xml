@@ -75,7 +75,6 @@
             android:layout_marginLeft="@dimen/base_keyline"
             android:layout_marginRight="@dimen/base_keyline"
             android:layout_marginTop="@dimen/base_keyline"
-            android:onClick="addRefuel"
             android:text="@string/add_refuel" />
 
     </LinearLayout>

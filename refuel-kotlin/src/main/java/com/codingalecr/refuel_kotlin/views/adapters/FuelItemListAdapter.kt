@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.codingalecr.refuel_kotlin.*
 import com.codingalecr.refuel_kotlin.models.MFuelItem
-import com.codingalecr.refuel_kotlin.views.base.ProgressManager
 import kotlinx.android.synthetic.main.fuel_item.view.*
 
 /**
@@ -27,7 +26,7 @@ class FuelItemListAdapter : RecyclerView.Adapter<FuelItemViewHolder>(), Observer
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): FuelItemViewHolder {
-        var view = LayoutInflater.from(parent!!.context).inflate(R.layout.fuel_item, parent, false)
+        val view = LayoutInflater.from(parent!!.context).inflate(R.layout.fuel_item, parent, false)
         return FuelItemViewHolder(view)
     }
 
@@ -41,6 +40,9 @@ class FuelItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
     var item : MFuelItem? = null
 
     fun showItem() {
+        itemView.setOnClickListener {
+
+        }
         itemView.refuel_date.showDate(item!!.fuelingDate)
         itemView.refuel_kms.showKilometersAbbreviation(item!!.odometer)
         itemView.refuel_cash.showCash(item!!.amountCash)
