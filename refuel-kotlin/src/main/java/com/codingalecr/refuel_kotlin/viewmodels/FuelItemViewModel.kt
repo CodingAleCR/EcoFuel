@@ -13,7 +13,7 @@ import android.arch.lifecycle.MutableLiveData
 /**
  * Created by aulate on 5/1/18.
  */
-open class FuelItemViewModel(private var item: MFuelItem = MFuelItem()) : ViewModel() {
+open class FuelItemViewModel(internal var item: MFuelItem = MFuelItem()) : ViewModel() {
 
     private var fuelItemRepository: FuelItemRepository = FuelItemRepository()
 
@@ -39,7 +39,7 @@ open class FuelItemViewModel(private var item: MFuelItem = MFuelItem()) : ViewMo
             }
         }
 
-        fuelItemRepository.addRefuel(item, listener)
+        fuelItemRepository.addRefuel(item!!, listener)
 
         return isSaved
     }

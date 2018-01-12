@@ -37,24 +37,24 @@
                 android:id="@+id/btn_gas_usage"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginBottom="@dimen/half_base_keyline"
+                android:layout_marginEnd="@dimen/base_keyline"
+                android:layout_marginLeft="@dimen/base_keyline"
+                android:layout_marginRight="@dimen/base_keyline"
+                android:layout_marginStart="@dimen/base_keyline"
+                android:layout_marginTop="@dimen/half_base_keyline"
                 android:text="@string/gas_usage" />
 
             <Button
                 android:id="@+id/btn_fuel_list"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginBottom="@dimen/half_base_keyline"
+                android:layout_marginEnd="@dimen/base_keyline"
+                android:layout_marginLeft="@dimen/base_keyline"
+                android:layout_marginRight="@dimen/base_keyline"
+                android:layout_marginStart="@dimen/base_keyline"
+                android:layout_marginTop="@dimen/half_base_keyline"
                 android:text="@string/history_title" />
 
         </LinearLayout>

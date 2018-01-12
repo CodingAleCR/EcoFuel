@@ -5,11 +5,16 @@ package com.codingalecr.refuel_kotlin
  */
 
 class Contracts {
-    interface REFUEL_DETAIL_ACTIVITY {
+    interface DetailActivityContract {
         companion object {
             val REQUEST_CODE = 101
             val ITEM = "ITEM"
             val PREVIOUS_ITEM = "PREVIOUS"
+        }
+    }
+    interface FormActivityContract {
+        companion object {
+            val REQUEST_CODE = 102
         }
     }
 }

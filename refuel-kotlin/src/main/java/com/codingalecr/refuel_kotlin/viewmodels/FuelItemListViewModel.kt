@@ -14,7 +14,7 @@ class FuelItemListViewModel : ViewModel(), LifecycleObserver {
     private var fuelItemRepository : FuelItemRepository = FuelItemRepository()
     val fuelItemList:  LiveData<List<MFuelItem>> = fuelItemRepository.allItems
 
-    fun initFuelList() {
+    init {
         fuelItemRepository.getAllFuelItems()
     }
 

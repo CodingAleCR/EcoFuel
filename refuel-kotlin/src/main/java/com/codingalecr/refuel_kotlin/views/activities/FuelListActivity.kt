@@ -4,6 +4,8 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.codingalecr.refuel_kotlin.Contracts
+import com.codingalecr.refuel_kotlin.ItemClickListener
 import com.codingalecr.refuel_kotlin.R
 import com.codingalecr.refuel_kotlin.viewmodels.FuelItemListViewModel
 import com.codingalecr.refuel_kotlin.views.adapters.FuelItemListAdapter
@@ -11,7 +13,7 @@ import com.codingalecr.refuel_kotlin.views.base.BaseActivity
 import com.codingalecr.refuel_kotlin.views.base.ProgressManager
 import kotlinx.android.synthetic.main.activity_fuel_list.*
 
-class FuelListActivity : BaseActivity(), ProgressManager {
+class FuelListActivity : BaseActivity(), ItemClickListener, ProgressManager {
 
     private var fuelListViewModel : FuelItemListViewModel? = null
     private var fuelListAdapter : FuelItemListAdapter? = FuelItemListAdapter()
@@ -25,11 +27,11 @@ class FuelListActivity : BaseActivity(), ProgressManager {
     }
 
     override fun initObservers() {
+        fuelListAdapter!!.listener = this
         fuelListViewModel!!.fuelItemList.observe(this, fuelListAdapter!!)
     }
 
     override fun initObj() {
-        fuelListViewModel!!.initFuelList()
         launch_add_refuel.setOnClickListener {
             val launchAddRefuel = Intent(this, FuelFormActivity::class.java)
             startActivity(launchAddRefuel)
@@ -53,5 +55,18 @@ class FuelListActivity : BaseActivity(), ProgressManager {
 
     override fun hideProgress() {
         progress.visibility = View.GONE
+    }
+
+    override fun clicked(viewId: Int, itemPosition: Int, isLongClick: Boolean) {
+        when(viewId){
+            R.id.fuel_list_item -> {
+                val item = fuelListAdapter?.getItem(position = itemPosition)
+                val previous = fuelListAdapter?.getItem(position = itemPosition-1)
+                val toDetail = Intent(this, DetailActivity::class.java)
+                toDetail.putExtra(Contracts.DetailActivityContract.ITEM, item)
+                toDetail.putExtra(Contracts.DetailActivityContract.PREVIOUS_ITEM, previous)
+                startActivityForResult(toDetail, Contracts.DetailActivityContract.REQUEST_CODE)
+            }
+        }
     }
 }
