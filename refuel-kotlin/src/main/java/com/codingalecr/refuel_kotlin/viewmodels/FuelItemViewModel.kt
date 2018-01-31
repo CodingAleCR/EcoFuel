@@ -39,7 +39,7 @@ open class FuelItemViewModel(internal var item: MFuelItem = MFuelItem()) : ViewM
             }
         }
 
-        fuelItemRepository.addRefuel(item!!, listener)
+        fuelItemRepository.addRefuel(item, listener)
 
         return isSaved
     }

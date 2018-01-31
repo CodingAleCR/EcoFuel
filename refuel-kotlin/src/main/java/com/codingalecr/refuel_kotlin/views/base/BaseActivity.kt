@@ -28,8 +28,8 @@ abstract class BaseActivity : AppCompatActivity() {
         initObservers()
     }
 
-    abstract fun initObj()
     abstract fun initViewModel()
+    abstract fun initObj()
     abstract fun initObservers()
     abstract fun initUI()
 }
