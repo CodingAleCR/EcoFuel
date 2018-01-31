@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ReFuel.iml" filepath="$PROJECT_DIR$/ReFuel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/refuel-kotlin/refuel-kotlin.iml" filepath="$PROJECT_DIR$/refuel-kotlin/refuel-kotlin.iml" />
     </modules>
   </component>

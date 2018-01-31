@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "506136492343",
+    "firebase_url": "https://ecofuel-eaaf6.firebaseio.com",
+    "project_id": "ecofuel-eaaf6",
+    "storage_bucket": "ecofuel-eaaf6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506136492343:android:7706e36515d90ffe",
+        "android_client_info": {
+          "package_name": "com.codingalecr.refuel_kotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506136492343-ueabj8kekor54h1j73m4onkudptotbr2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.codingalecr.refuel_kotlin",
+            "certificate_hash": "373366c84cb51c9b9abbfe8c36514346c659ab64"
+          }
+        },
+        {
+          "client_id": "506136492343-i9n91v0bn9ps3o6t3s5hqrtkpbc8aad4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAJCsTIKMYUHnvfeVHayLTJMJ4Q6mIe-k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506136492343-i9n91v0bn9ps3o6t3s5hqrtkpbc8aad4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

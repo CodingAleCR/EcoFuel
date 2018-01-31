@@ -2,12 +2,8 @@ package com.codingalecr.refuel_kotlin.repositories
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import android.database.Observable
-import android.widget.Toast
 import com.codingalecr.refuel_kotlin.models.MFuelItem
 import com.google.firebase.database.*
-import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * Created by aulate on 5/1/18.

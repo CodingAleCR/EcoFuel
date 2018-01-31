@@ -8,7 +8,6 @@ import com.codingalecr.refuel_kotlin.viewmodels.FuelItemViewModel
 import com.codingalecr.refuel_kotlin.views.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_fuel_item_form.*
 import org.jetbrains.anko.longToast
-import org.jetbrains.anko.toast
 import java.util.*
 
 /**

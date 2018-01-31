@@ -2,7 +2,6 @@ package com.codingalecr.refuel_kotlin
 
 import android.widget.DatePicker
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_fuel_item_form.*
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat

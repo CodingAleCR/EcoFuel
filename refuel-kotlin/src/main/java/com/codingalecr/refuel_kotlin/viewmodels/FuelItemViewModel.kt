@@ -1,13 +1,12 @@
 package com.codingalecr.refuel_kotlin.viewmodels
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.codingalecr.refuel_kotlin.models.MFuelItem
 import com.codingalecr.refuel_kotlin.repositories.FuelItemRepository
 import com.google.firebase.database.DatabaseReference
 import java.util.*
-import android.arch.lifecycle.MutableLiveData
-
 
 
 /**
